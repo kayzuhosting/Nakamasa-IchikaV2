@@ -5,13 +5,13 @@ const weather = {
     base: 'https://weatherApi.intl.xiaomi.com',
     endpoints: {
       geoCity: (lat, lon) =>
-        `/wtr-v3/location/city/geo?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}`
-    }
+        `/wtr-v3/location/city/geo?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}`,
+    },
   },
 
   headers: {
     'user-agent': 'Postify/1.0.0',
-    accept: 'application/json'
+    accept: 'application/json',
   },
 
   appKey: 'weather20151024',
@@ -43,12 +43,11 @@ const weather = {
       return {
         success: false,
         code: 400,
-        result: { module, input, error: 'Latitude ama longitude kudu diisi yak bree...' }
+        result: { module, input, error: 'Latitude ama longitude kudu diisi yak bree...' },
       }
     }
 
-    const url = `${weather.api.base}${weather.api.endpoints.geoCity(lat, lon)}&appKey=${weather.appKey}${weather._contextParams()}`
-
+    const url = `${weather.api.base}${weather.api.endpoints.geoCity(lat, lon)}${weather._contextParams()}`
     try {
       const { data } = await axios.get(url, { headers: weather.headers })
       return { success: true, code: 200, result: { module, input, ...data } }
@@ -59,11 +58,29 @@ const weather = {
         result: {
           module,
           input,
-          error: error.response?.data?.message || error.message || 'Error bree...'
-        }
+          error: error.response?.data?.message || error.message || 'Error bree...',
+        },
       }
     }
+  },
+}
+
+async function getCoordinatesFromCityName(city) {
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`
+    const { data } = await axios.get(url)
+    if (!data.length) throw new Error('Kota tidak ditemukan')
+    return {
+      lat: data[0].lat,
+      lon: data[0].lon,
+      displayName: data[0].display_name,
+    }
+  } catch (e) {
+    return { error: e.message }
   }
 }
 
-module.exports = { getGeoCity: weather.getGeoCity }
+module.exports = {
+  getGeoCity: weather.getGeoCity,
+  getCoordinatesFromCityName
+}
