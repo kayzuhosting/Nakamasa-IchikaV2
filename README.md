@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kayzuhosting/Nakamasa-Ichika/main/uploader/0441a8cfed.jpg" width="2100" alt="Project Banner"/>
+  <img src="https://raw.githubusercontent.com/kayzuhosting/Nakamasa-Ichika/main/uploader/7060f23526.png" width="2100" alt="Project Banner"/>
 </p>
 
 <p align="center">
