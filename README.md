@@ -23,26 +23,9 @@
 
 ---
 
-## 👤 Tentang Saya
-
-Halo semuanya!  
-Saya **Kay Ramadhan** (Kayzu), pengembang bot WhatsApp yang aktif di dunia pemrograman open-source.
-
-- 🎯 **Fokus:** Bot WhatsApp, API, & Tool Otomatisasi  
-- 📍 **Domisili:** 🇮🇩 Indonesia (Sumatera)  
-- 🧠 **Skill:** Java Script,Fiks eror,Instalasi Penerangan,panel,Pembelajaran sederhana dan lain-lain
-- 🔧 **Aktif:** Kolaborasi proyek, bantu komunitas digital
-
----
-
-## ✨ Fitur
-
-- ✅ Bot WhatsApp aktif 24 jam
-- ✅ Banyak command seru & auto-update
-- ✅ Bisa dijalankan di Termux/NodeJS
-- ✅ Gratis & open-source
-
----
+## Base allbackup fitur
+- Scrape
+- Plugin
 
 <div align="center">
 <details>
